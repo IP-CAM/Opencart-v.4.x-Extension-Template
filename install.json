@@ -1,0 +1,9 @@
+{
+  "name": "OpenCart 4.x Extension Starter Template",
+  "description": "A clean and developer-friendly boilerplate for building OpenCart 4.x extensions efficiently.",
+  "version": "1.0.0",
+  "author": "Ucscode",
+  "homepage": "https://www.github.com/ucscode/opencart-4-extension-template",
+  "compatibility": "4.x",
+  "license": "MIT"
+}

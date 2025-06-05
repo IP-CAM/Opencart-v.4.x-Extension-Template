@@ -1,0 +1,34 @@
+{# This template renders the frontend display of your module. #}
+{# It assumes the controller passes data like 'heading_title', 'my_custom_text', and 'items'. #}
+{# You can clear this entire template and replace it with the right one #}
+
+<div class="card my-3">
+  <div class="card-header">
+    <h3 class="card-title">{{ heading_title }}</h3>
+  </div>
+  <div class="card-body">
+    {# Example: Display a custom text from admin settings. #}
+    {% if my_custom_text %}
+      <p>{{ my_custom_text }}</p>
+    {% endif %}
+
+    {# Example: Loop through items fetched from the catalog model. #}
+    {% if items %}
+      <ul class="list-group list-group-flush">
+        {% for item in items %}
+          <li class="list-group-item">
+            <h5>{{ item.title }}</h5>
+            <p>{{ item.description }}</p>
+            <small class="text-muted">{{ item.date_added }}</small>
+            {# Link to a detail page if applicable #}
+            {# <a href="{{ item.link }}" class="btn btn-sm btn-info">{{ text_read_more }}</a> #}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>{{ text_no_items }}</p>
+    {% endif %}
+
+    {# You can add more HTML elements here, e.g., images, links, forms. #}
+  </div>
+</div>

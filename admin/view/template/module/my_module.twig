@@ -1,0 +1,56 @@
+{{ header }}
+{{ column_left }}
+
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="float-end">
+        <button type="submit" form="form-payment" data-bs-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary">
+            <i class="fa-solid fa-save"></i>
+        </button>
+        <a href="{{ back }}" data-bs-toggle="tooltip" title="{{ button_back }}" class="btn btn-light">
+            <i class="fa-solid fa-reply"></i>
+        </a>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ol class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+          <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header"><i class="fa-solid fa-pencil"></i> {{ text_edit }}</div>
+      <div class="card-body">
+        <form id="form-payment" action="{{ save }}" method="post" data-oc-toggle="ajax">
+
+          {# render form elements #}
+
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">{{ my_module_status_label|default('Dummy Checkbox Label') }}</label>
+            <div class="col-sm-10">
+              <div class="form-check form-switch form-switch-lg">
+                <input type="hidden" name="my_module_status" value="0"/>
+                <input type="checkbox" name="my_module_status" value="1" id="input-status" class="form-check-input"{% if my_module_status_checked|default(false) %} checked{% endif %}/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="input-sort-order" class="col-sm-2 col-form-label">{{ my_module_config_label|default('Dummy Text Label') }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="payment_bank_transfer_sort_order" value="{{ my_module_config_value }}" placeholder="{{ my_module_config_placeholder }}" id="input-sort-order" class="form-control"/>
+            </div>
+          </div>
+
+          {# end render form elements #}
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ footer }}
